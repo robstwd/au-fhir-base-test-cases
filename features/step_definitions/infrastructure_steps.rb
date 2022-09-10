@@ -28,7 +28,9 @@ When('I run the validator command on this testfile against profile {string}') do
   # term_server = "n/a"
   # -tx #{term_server}
 
-  validator_command = "java -jar #{path_to_validator} -version #{FHIR_VERSION} #{@testfile} -ig #{IG_PACKAGE} -profile #{profile_url}"
+  Kernel.puts "      Running validation command..."
+
+  validator_command = "java -jar #{path_to_validator} -version #{FHIR_VERSION} #{@testfile} -ig #{IG_PACKAGE} -profile #{profile_url} -level errors"
 
   begin
     @output, @err = cmd.run(validator_command)
@@ -40,7 +42,6 @@ When('I run the validator command on this testfile against profile {string}') do
   end
 
 end
-
 
 Then('the command should {string} with output message {string}') do |status, output_string|
   expect(@output).to include_correct_content(status, output_string)
