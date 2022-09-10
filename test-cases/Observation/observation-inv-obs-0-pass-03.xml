@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir">
+	<id value="inv-obs-0-pass-03"/>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+			<code value="imaging"/>
+		</coding>
+	</category>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="24701-5"/>
+			<display value="Femur DXA Bone density"/>
+		</coding>
+		<text value="BMD - Left Femur"/>
+	</code>
+	<subject>
+		<reference value="Patient/pat2"/>
+	</subject>
+	<effectiveDateTime value="2022-09-12"/>
+	<performer>
+		<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+		<display value="Acme Imaging Diagnostics"/>
+	</performer>
+	<valueInteger value="7"/>
+	<bodySite>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="71341001:272741003=7771000"/>
+			<!--  example of a post coordinated term  --></coding>
+		<text value="Left Femur"/>
+	</bodySite>
+</Observation>
