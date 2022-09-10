@@ -6,7 +6,7 @@ Given('extension {string} is present') do |extension_url|
   expect(@testfile).to have_extension(extension_url)
 end
 
-Given('its element {string} has value {string}') do |element, value|
+Given('element {string} has value {string}') do |element, value|
   expect(@testfile).to have_element_with_value(element, value)
 end
 

@@ -10,28 +10,28 @@ In order to be assured of quality
 
 Scenario: Observation.valueQuantity is present, no others
     Given a test file named "test-cases/Observation/observation-inv-obs-0-pass-01.xml" exists
-    And its element "Observation.valueQuantity.value" has value "0.887"
-    And its element "Observation.valueQuantity.unit" has value "g/cm-2"
-    And its element "Observation.valueQuantity.system" has value "http://unitsofmeasure.org"
-    And its element "Observation.valueQuantity.code" has value "g/cm-2"
+    And element "Observation.valueQuantity.value" has value "0.887"
+    And element "Observation.valueQuantity.unit" has value "g/cm-2"
+    And element "Observation.valueQuantity.system" has value "http://unitsofmeasure.org"
+    And element "Observation.valueQuantity.code" has value "g/cm-2"
     When I run the validator command on this testfile against profile "au-imagingresult"
     Then the command should "succeed" with output message "Success: 0 errors"
 
 Scenario: Observation.valueString is present, no others
     Given a test file named "test-cases/Observation/observation-inv-obs-0-pass-02.xml" exists
-    And its element "Observation.valueString" has value "Imaging report details"
+    And element "Observation.valueString" has value "Imaging report details"
     When I run the validator command on this testfile against profile "au-imagingresult"
     Then the command should "succeed" with output message "Success: 0 errors"
 
 Scenario: Observation.valueInteger is present, no others
     Given a test file named "test-cases/Observation/observation-inv-obs-0-pass-03.xml" exists
-    And its element "Observation.valueInteger" has value "7"
+    And element "Observation.valueInteger" has value "7"
     When I run the validator command on this testfile against profile "au-imagingresult"
     Then the command should "succeed" with output message "Success: 0 errors"
 
 Scenario: Observation.valueBoolean is present, no others
     Given a test file named "test-cases/Observation/observation-inv-obs-0-pass-04.xml" exists
-    And its element "Observation.valueBoolean" has value "true"
+    And element "Observation.valueBoolean" has value "true"
     When I run the validator command on this testfile against profile "au-imagingresult"
     Then the command should "succeed" with output message "Success: 0 errors"
 

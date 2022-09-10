@@ -16,28 +16,28 @@ Scenario: birthTime extension is not present
 
 Scenario: birthTime extension has same date as birthDate, birthTime has time
     Given a test file named "test-cases/Patient/patient-inv-pat-0-pass-02.xml" exists
-    And its element "Patient.birthDate" has value "1978-09-12"
+    And element "Patient.birthDate" has value "1978-09-12"
     And valueDateTime extension "http://hl7.org/fhir/StructureDefinition/patient-birthTime" has value "1978-09-12T14:35:45-05:00"
     When I run the validator command on this testfile against profile "au-patient"
     Then the command should "succeed" with output message "Success: 0 errors"
 
 Scenario: birthTime extension has same date as birthDate, birthTime has only date
     Given a test file named "test-cases/Patient/patient-inv-pat-0-pass-03.xml" exists
-    And its element "Patient.birthDate" has value "1963-04-24"
+    And element "Patient.birthDate" has value "1963-04-24"
     And valueDateTime extension "http://hl7.org/fhir/StructureDefinition/patient-birthTime" has value "1963-04-24"
     When I run the validator command on this testfile against profile "au-patient"
     Then the command should "succeed" with output message "Success: 0 errors"
 
 Scenario: birthTime extension and birthDate have same YYYY-MM
     Given a test file named "test-cases/Patient/patient-inv-pat-0-pass-04.xml" exists
-    And its element "Patient.birthDate" has value "1963-04"
+    And element "Patient.birthDate" has value "1963-04"
     And valueDateTime extension "http://hl7.org/fhir/StructureDefinition/patient-birthTime" has value "1963-04"
     When I run the validator command on this testfile against profile "au-patient"
     Then the command should "succeed" with output message "Success: 0 errors"
 
 Scenario: birthTime extension and birthDate have same YYYY
     Given a test file named "test-cases/Patient/patient-inv-pat-0-pass-05.xml" exists
-    And its element "Patient.birthDate" has value "1963"
+    And element "Patient.birthDate" has value "1963"
     And valueDateTime extension "http://hl7.org/fhir/StructureDefinition/patient-birthTime" has value "1963"
     When I run the validator command on this testfile against profile "au-patient"
     Then the command should "succeed" with output message "Success: 0 errors"
