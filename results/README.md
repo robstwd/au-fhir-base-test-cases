@@ -1,1 +1,6 @@
-# au-fhir-base-test-cases
+# Results of testing
+
+## Profiles tested
+
+* [AUBaseDiagnosticImagingResult](AUBaseDiagnosticImagingResult.md)
+* [AUBasePatient](AUBasePatient.md)
