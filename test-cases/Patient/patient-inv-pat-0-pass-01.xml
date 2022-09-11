@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Patient xmlns="http://hl7.org/fhir">
-  <id value="patient-example-01"/>
+  <id value="inv-pat-0-pass-01"/>
   <meta>
     <profile value="https://about.me/robeastwood/fhir/ig/StructureDefinition/Patient-base"/>
   </meta>
