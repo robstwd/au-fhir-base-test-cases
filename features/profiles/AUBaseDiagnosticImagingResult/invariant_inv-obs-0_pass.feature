@@ -10,56 +10,93 @@ In order to be assured of quality
 
 Scenario: Observation.valueQuantity is present, no others
     Given a test file named "test-cases/Observation/observation-inv-obs-0-pass-01.xml" exists
-    And element "Observation.valueQuantity" is present
-    And element "Observation.dataAbsentReason" is not present
-    And element "Observation.hasMember" is not present
-    And element "Observation.component" is not present
+    * element "Observation.valueQuantity" is present
+    * element "Observation.dataAbsentReason" is not present
+    * element "Observation.hasMember" is not present
+    * element "Observation.component" is not present
     When I run the validator command on this testfile against profile "au-imagingresult"
     Then the command should "succeed" with output message "Success: 0 errors"
 
 Scenario: Observation.valueString is present, no others
     Given a test file named "test-cases/Observation/observation-inv-obs-0-pass-02.xml" exists
-    And element "Observation.valueString" is present
-    And element "Observation.dataAbsentReason" is not present
-    And element "Observation.hasMember" is not present
-    And element "Observation.component" is not present
+    * element "Observation.valueString" is present
+    * element "Observation.dataAbsentReason" is not present
+    * element "Observation.hasMember" is not present
+    * element "Observation.component" is not present
     When I run the validator command on this testfile against profile "au-imagingresult"
     Then the command should "succeed" with output message "Success: 0 errors"
 
 Scenario: Observation.valueInteger is present, no others
     Given a test file named "test-cases/Observation/observation-inv-obs-0-pass-03.xml" exists
-    And element "Observation.valueInteger" is present
-    And element "Observation.dataAbsentReason" is not present
-    And element "Observation.hasMember" is not present
-    And element "Observation.component" is not present
+    * element "Observation.valueInteger" is present
+    * element "Observation.dataAbsentReason" is not present
+    * element "Observation.hasMember" is not present
+    * element "Observation.component" is not present
     When I run the validator command on this testfile against profile "au-imagingresult"
     Then the command should "succeed" with output message "Success: 0 errors"
 
 Scenario: Observation.valueBoolean is present, no others
     Given a test file named "test-cases/Observation/observation-inv-obs-0-pass-04.xml" exists
-    And element "Observation.valueBoolean" is present
-    And element "Observation.dataAbsentReason" is not present
-    And element "Observation.hasMember" is not present
-    And element "Observation.component" is not present
+    * element "Observation.valueBoolean" is present
+    * element "Observation.dataAbsentReason" is not present
+    * element "Observation.hasMember" is not present
+    * element "Observation.component" is not present
     When I run the validator command on this testfile against profile "au-imagingresult"
     Then the command should "succeed" with output message "Success: 0 errors"
 
 Scenario: Observation.dataAbsentReason is present, no others
     Given a test file named "test-cases/Observation/observation-inv-obs-0-pass-05.xml" exists
-    And element "Observation.valueQuantity" is not present
-    And element "Observation.valueCodeableConcept" is not present
-    And element "Observation.valueString" is not present
-    And element "Observation.valueBoolean" is not present
-    And element "Observation.valueInteger" is not present
-    And element "Observation.valueRange" is not present
-    And element "Observation.valueRatio" is not present
-    And element "Observation.valueSampledData" is not present
-    And element "Observation.valueTime" is not present
-    And element "Observation.valueDateTime" is not present
-    And element "Observation.valuePeriod" is not present
-    And element "Observation.dataAbsentReason" is present
-    And element "Observation.hasMember" is not present
-    And element "Observation.component" is not present
+    * element "Observation.valueQuantity" is not present
+    * element "Observation.valueCodeableConcept" is not present
+    * element "Observation.valueString" is not present
+    * element "Observation.valueBoolean" is not present
+    * element "Observation.valueInteger" is not present
+    * element "Observation.valueRange" is not present
+    * element "Observation.valueRatio" is not present
+    * element "Observation.valueSampledData" is not present
+    * element "Observation.valueTime" is not present
+    * element "Observation.valueDateTime" is not present
+    * element "Observation.valuePeriod" is not present
+    * element "Observation.dataAbsentReason" is present
+    * element "Observation.hasMember" is not present
+    * element "Observation.component" is not present
     When I run the validator command on this testfile against profile "au-imagingresult"
     Then the command should "succeed" with output message "Success: 0 errors"
 
+Scenario: Observation.hasMember is present, no others
+    Given a test file named "test-cases/Observation/observation-inv-obs-0-pass-06.xml" exists
+    * element "Observation.valueQuantity" is not present
+    * element "Observation.valueCodeableConcept" is not present
+    * element "Observation.valueString" is not present
+    * element "Observation.valueBoolean" is not present
+    * element "Observation.valueInteger" is not present
+    * element "Observation.valueRange" is not present
+    * element "Observation.valueRatio" is not present
+    * element "Observation.valueSampledData" is not present
+    * element "Observation.valueTime" is not present
+    * element "Observation.valueDateTime" is not present
+    * element "Observation.valuePeriod" is not present
+    * element "Observation.dataAbsentReason" is not present
+    * element "Observation.hasMember" is present
+    * element "Observation.component" is not present
+    When I run the validator command on this testfile against profile "au-imagingresult"
+    Then the command should "succeed" with output message "Success: 0 errors"
+
+Scenario: Observation.component.value is present, no others
+    Given a test file named "test-cases/Observation/observation-inv-obs-0-pass-07.xml" exists
+    * element "Observation.valueQuantity" is not present
+    * element "Observation.valueCodeableConcept" is not present
+    * element "Observation.valueString" is not present
+    * element "Observation.valueBoolean" is not present
+    * element "Observation.valueInteger" is not present
+    * element "Observation.valueRange" is not present
+    * element "Observation.valueRatio" is not present
+    * element "Observation.valueSampledData" is not present
+    * element "Observation.valueTime" is not present
+    * element "Observation.valueDateTime" is not present
+    * element "Observation.valuePeriod" is not present
+    * element "Observation.dataAbsentReason" is not present
+    * element "Observation.hasMember" is not present
+    * element "Observation.component.valueString" is present
+    When I run the validator command on this testfile against profile "au-imagingresult"
+    Then the command should "succeed" with output message "Success: 0 errors"
