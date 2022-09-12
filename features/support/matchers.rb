@@ -21,6 +21,26 @@ module MatcherHelpers
     return not(nodeset.empty?)
   end
 
+  # this method returns whether an extension is present in a test file, at a specific parent node
+  def get_extension_nodeset_present_at_node(file,extension_url,parent_node)
+    doc = get_nokogiri_doc(file)
+    extension_xpath = "/#{parent_node.gsub('.','/')}/extension[@url='#{extension_url}']"
+    # Kernel.puts extension_xpath
+    nodeset = doc.xpath(extension_xpath)
+    # Kernel.puts nodeset
+    return not(nodeset.empty?)
+  end
+
+  # sdfsdf
+  def get_extension_nodeset_present_with_child(file, extension_url, child_element)
+    doc = get_nokogiri_doc(file)
+    extension_xpath = "//extension[@url='#{extension_url}']/#{child_element}"
+    # Kernel.puts extension_xpath
+    nodeset = doc.xpath(extension_xpath)
+    # Kernel.puts nodeset
+    return not(nodeset.empty?)
+  end
+
   # this method captures the error message summary line of the FHIR validator, if present (ie when a failure actually occurs)
   # eg "*FAILURE*: 1 errors, 0 warnings, 0 notes"
   # this returns a MatchData object (https://ruby-doc.org/core-2.6.8/MatchData.html)
@@ -53,14 +73,11 @@ module MatcherHelpers
   # this method retuns a nodeset from a test file, specifying an extension
   def get_extension_nodeset(testfile_name, extension_url, value_type)
     doc = get_nokogiri_doc(testfile_name)
-
     extension_xpath = "//extension[@url='#{extension_url}']/#{value_type}"
     # Kernel.puts extension_xpath
     nodeset = doc.xpath(extension_xpath)
     # Kernel.puts nodeset
-
     return nodeset
-
   end
 
 end
@@ -350,6 +367,99 @@ RSpec::Matchers.define :have_element do |element_name|
 
   failure_message_when_negated do |source|
     @error_msg = "Element #{@element_name} was present"
+    print_failure_message(@error_msg)
+  end
+
+end
+
+
+# This matcher determines if a specific extension is present within a specific node
+RSpec::Matchers.define :have_extension_in_node do |extension_url, node|
+
+  include MatcherHelpers
+
+  match do |source|
+
+    begin
+
+      # file under test
+      @file_name = source
+      # Kernel.puts @file_name
+
+      # extension being examined
+      @extension_url = extension_url
+      # Kernel.puts @extension_url
+
+      # the expected node that the extensionm is to be a child of
+      @parent_node = node
+      # Kernel.puts @parent_node
+
+      # determine if extension is present
+      extension_present = get_extension_nodeset_present_at_node(@file_name,@extension_url,@parent_node)
+      # Kernel.puts extension_present
+
+      @error_msg = "Expecting the test file '#{@file_name}' to include extension '#{@extension_url}' \n" \
+          " within node '#{@parent_node}' - instead it was absent."
+
+      expect(extension_present).to be_truthy
+      
+    end
+
+  end
+
+  failure_message do |source|
+    print_failure_message(@error_msg)
+  end
+
+  failure_message_when_negated do |source|
+    @error_msg = "Extension #{@extension_url} was present"
+    print_failure_message(@error_msg)
+  end
+
+end
+
+
+# This matcher determines if a specific extension is present, with a given child element
+RSpec::Matchers.define :have_extension_with_element do |extension_url, child_element|
+
+  include MatcherHelpers
+
+  match do |source|
+
+    begin
+
+      # file under test
+      @file_name = source
+      # Kernel.puts @file_name
+
+      # extension being examined
+      @extension_url = extension_url
+      # Kernel.puts @extension_url
+
+      # expected child element
+      @child_element = child_element
+      # Kernel.puts @child_element
+
+      # determine if extension is present
+      extension_present = get_extension_nodeset_present_with_child(@file_name, @extension_url, @child_element)
+      # Kernel.puts extension_present
+
+      @error_msg = "Expecting the test file '#{@file_name}' to include extension '#{@extension_url}' \n" \
+          " with child element '#{@child_element}'  \n" \
+          " Instead it was absent."
+
+      expect(extension_present).to be_truthy
+      
+    end
+
+  end
+
+  failure_message do |source|
+    print_failure_message(@error_msg)
+  end
+
+  failure_message_when_negated do |source|
+    @error_msg = "Extension #{@extension_url} was present"
     print_failure_message(@error_msg)
   end
 
