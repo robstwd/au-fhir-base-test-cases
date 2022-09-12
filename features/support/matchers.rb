@@ -31,7 +31,17 @@ module MatcherHelpers
     return not(nodeset.empty?)
   end
 
-  # sdfsdf
+  # this method returns a count of how many times an extension is present in a test file, at a specific parent node
+  def get_extension_nodeset_present_at_node_count(file,extension_url,parent_node)
+    doc = get_nokogiri_doc(file)
+    extension_xpath = "/#{parent_node.gsub('.','/')}/extension[@url='#{extension_url}']"
+    # Kernel.puts extension_xpath
+    nodeset = doc.xpath(extension_xpath)
+    # Kernel.puts nodeset.count
+    return nodeset.count
+  end
+
+  # this method returns a boolean whether an extension is present with a specified child element
   def get_extension_nodeset_present_with_child(file, extension_url, child_element)
     doc = get_nokogiri_doc(file)
     extension_xpath = "//extension[@url='#{extension_url}']/#{child_element}"
@@ -464,3 +474,55 @@ RSpec::Matchers.define :have_extension_with_element do |extension_url, child_ele
   end
 
 end
+
+
+# This matcher determines the count of a specific extension, within a given parent node
+RSpec::Matchers.define :have_extension_in_node_count do |extension_url, occurrences, parent_node|
+
+  include MatcherHelpers
+
+  match do |source|
+
+    begin
+
+      # file under test
+      @file_name = source
+      # Kernel.puts @file_name
+
+      # url of extension being examined
+      @extension_url = extension_url
+      # Kernel.puts @extension_url
+
+      # expected occurrences
+      @expected_occurrences = occurrences.to_i
+      # Kernel.puts @expected_occurrences
+
+      # parent node
+      @parent_node = parent_node
+      # Kernel.puts @parent_node
+
+      # determine count of the extension
+      extension_count = get_extension_nodeset_present_at_node_count(@file_name, @extension_url, @parent_node)
+      # Kernel.puts extension_count
+
+      @error_msg = "Expecting the test file '#{@file_name}' to include extension '#{@extension_url}' #{@expected_occurrences} times. \n" \
+          " Instead it was present #{extension_count} times."
+
+      expect(extension_count).to eq(@expected_occurrences )
+      
+    end
+
+  end
+
+  failure_message do |source|
+    print_failure_message(@error_msg)
+  end
+
+  failure_message_when_negated do |source|
+    @error_msg = "Extension #{@extension_url} was present"
+    print_failure_message(@error_msg)
+  end
+
+end
+
+

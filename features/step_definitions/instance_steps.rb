@@ -33,3 +33,7 @@ end
 Given('element {string} is not present') do |element|
   expect(@testfile).not_to have_element(element)
 end
+
+Given('extension {string} is present {string} times in parent node {string}') do |extension_url, occurrences, parent_node|
+  expect(@testfile).to have_extension_in_node_count(extension_url, occurrences, parent_node)
+end

@@ -55,14 +55,14 @@ In order to be assured of quality
 
     Scenario: wrong cardinality: 2 instances
       Given a test file named "test-cases/Patient/patient-ext-birthPlace-fail-06.xml" exists
-      * extension "http://hl7.org/fhir/StructureDefinition/patient-birthPlace" is present "2" times in node "Patient"
+      * extension "http://hl7.org/fhir/StructureDefinition/patient-birthPlace" is present "2" times in parent node "Patient"
       When I run the validator command on this testfile against profile "au-patient"
       Then the command should "fail" with output message "*FAILURE*: 1 errors"
-      And the command should "fail" with output message "TODO"
+      And the command should "fail" with output message "Patient.extension:birthPlace: max allowed = 1, but found "
 
     Scenario: wrong cardinality: 7 instances
       Given a test file named "test-cases/Patient/patient-ext-birthPlace-fail-07.xml" exists
-      * extension "http://hl7.org/fhir/StructureDefinition/patient-birthPlace" is present "7" times in node "Patient"
+      * extension "http://hl7.org/fhir/StructureDefinition/patient-birthPlace" is present "7" times in parent node "Patient"
       When I run the validator command on this testfile against profile "au-patient"
       Then the command should "fail" with output message "*FAILURE*: 1 errors"
-      And the command should "fail" with output message "TODO"
+      And the command should "fail" with output message "Patient.extension:birthPlace: max allowed = 1, but found "
