@@ -4,3 +4,10 @@
 | ------|---------------|----------|-----|
 |Patient|invariant|inv-pat-0: If present, birth time's date shall be the birth date|[![inv-pat-0 tests](https://github.com/robstwd/au-fhir-base-test-cases/actions/workflows/AUBasePatient-validation.yml/badge.svg)](https://github.com/robstwd/au-fhir-base-test-cases/actions/workflows/AUBasePatient-validation.yml)|
 |Patient|extension|[birthPlace](http://hl7.org/fhir/R4/extension-patient-birthplace.html) (core)| |
+|Patient|extension|[indigenousStatus](http://hl7.org.au/fhir/StructureDefinition/indigenous-status)| |
+|Patient|extension|[closingTheGapRegistration](http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration)| |
+|Patient|extension|[mothersMaidenName](http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName) (core)| |
+|Patient|extension|[interpreterRequired](http://hl7.org/fhir/StructureDefinition/patient-interpreterRequired) (core)| |
+|Patient|extension|[dateOfArrival](http://hl7.org.au/fhir/StructureDefinition/date-of-arrival)| |
+|Patient.birthDate|extension|[accuracyIndicator](http://hl7.org.au/fhir/StructureDefinition/date-accuracy-indicator)| |
+|Patient.deceasedDateTime|extension|[accuracyIndicator](http://hl7.org.au/fhir/StructureDefinition/date-accuracy-indicator)| |
