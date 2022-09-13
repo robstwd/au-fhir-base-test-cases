@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir">
+  <id value="ext-birthPlace-pass-03"/>
+  <meta>
+    <profile value="https://about.me/robeastwood/fhir/ig/StructureDefinition/Patient-base"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/patient-birthPlace">
+    <valueAddress>
+      <use value="work"/>
+      <type value="postal"/>
+      <text value="Mexico"/>
+      <line value="Address line 1"/>
+      <city value="Brisbane"/>
+      <district value="South East Queensland"/>
+      <state value="Queensland"/>
+      <postalCode value="4000"/>
+      <country value="AU"/>
+      <period>
+        <start value="2022-01-01"/>
+        <end value="2022-04-30"/>
+      </period>
+    </valueAddress>
+  </extension>
+  <name>
+    <use value="usual"/>
+    <family value="Smith"/>
+    <given value="Jack"/>
+  </name>
+  <name>
+    <use value="official"/>
+    <family value="Smith"/>
+    <given value="John"/>
+    <given value="Jacob"/>
+    <given value="Jingleheimer"/>
+    <period>
+      <end value="2001-01-01"/>
+    </period>
+  </name>
+  <name>
+    <use value="official"/>
+    <family value="Smith"/>
+    <given value="John"/>
+    <given value="Jacob"/>
+    <given value="Jingleheimer"/>
+    <period>
+      <start value="2001-01-01"/>
+    </period>
+  </name>
+  <gender value="male"/>
+  <birthDate value="1955-05-30"/>
+</Patient>

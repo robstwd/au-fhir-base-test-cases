@@ -44,7 +44,7 @@ module MatcherHelpers
   # this method returns a boolean whether an extension is present with a specified child element
   def get_extension_nodeset_present_with_child(file, extension_url, child_element)
     doc = get_nokogiri_doc(file)
-    extension_xpath = "//extension[@url='#{extension_url}']/#{child_element}"
+    extension_xpath = "//extension[@url='#{extension_url}']/#{child_element.gsub('.','/')}"
     # Kernel.puts extension_xpath
     nodeset = doc.xpath(extension_xpath)
     # Kernel.puts nodeset

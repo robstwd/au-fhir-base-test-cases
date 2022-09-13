@@ -26,6 +26,10 @@ Given('extension {string} has child element {string}') do |extension_url, child_
   expect(@testfile).to have_extension_with_element(extension_url, child_element)
 end
 
+Given('extension {string} does not have child element {string}') do |extension_url, child_element|
+  expect(@testfile).not_to have_extension_with_element(extension_url, child_element)
+end
+
 Given('element {string} is present') do |element|
   expect(@testfile).to have_element(element)
 end

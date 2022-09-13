@@ -1,4 +1,5 @@
 Feature: HL7AU AU Base Patient profile: expected failures for extension 'birthPlace'
+
  - Context in profile: Patient
  - Context in extension definition: Patient
  - url: http://hl7.org/fhir/StructureDefinition/patient-birthPlace
