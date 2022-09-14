@@ -3,6 +3,7 @@ FAILURE_MESSAGE_START = "\n VALIDATION FAILURE:\n "
 FAILURE_MESSAGE_END   = "\n\n"
 
 class NodeNotPresentError < StandardError; end
+class ValidatorNotPresentError < StandardError; end
 
 module MatcherHelpers
 
@@ -327,6 +328,30 @@ RSpec::Matchers.define :be_in_testcase_directory do
     @error_msg = "The test case '#{@testfile_name}' does not exist in the expected directory"
 
     expect(File.exist?(@file_full_path)).to be_truthy 
+
+  end
+
+  failure_message do |source|
+    print_failure_message(@error_msg)
+  end
+
+end
+
+
+# this matcher determines if the FHIR validator exists at the expected path
+RSpec::Matchers.define :be_accessible do
+
+  include MatcherHelpers
+  
+  match do |source|
+
+    # expected path of FHIR validator
+    @validator_path = source
+    # Kernel.puts @validator_path
+
+    @error_msg = "The FHIR validator does not exist at the path '#{@validator_path}' "
+
+    expect(File.exist?(@validator_path)).to be_truthy 
 
   end
 
