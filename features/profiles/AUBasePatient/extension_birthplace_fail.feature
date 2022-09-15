@@ -52,7 +52,7 @@ In order to be assured of quality
       Then the command should "fail" with output message "*FAILURE*: 1 errors"
       And the command should "fail" with output message "The Extension 'http://hl7.org/fhir/StructureDefinition/patient-birthPlace' definition allows for the types [Address] but found type boolean"
 
-  Rule: Extension has correct cardinality
+  Rule: Extension has correct cardinality 0..1
 
     Scenario: wrong cardinality: 2 instances
       Given a test file named "test-cases/Patient/patient-ext-birthPlace-fail-06.xml" exists
