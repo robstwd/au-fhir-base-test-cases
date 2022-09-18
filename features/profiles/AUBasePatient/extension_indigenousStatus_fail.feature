@@ -75,6 +75,7 @@ In order to be assured of quality
 
   Rule: required terminology https://healthterminologies.gov.au/fhir/ValueSet/australian-indigenous-status-1 
 
+    @ncts
     Scenario: correct system but code is not member of system
       Given a test file named "test-cases/Patient/patient-ext-indigenousStatus-fail-07.xml" exists
       * extension "http://hl7.org.au/fhir/StructureDefinition/indigenous-status" is present in node "Patient"
@@ -84,6 +85,7 @@ In order to be assured of quality
       Then the command should "fail" with output message "*FAILURE*: 1 errors"
       And the command should "fail" with output message " The value provided ('017') is not in the value set 'Australian Indigenous Status' (https://healthterminologies.gov.au/fhir/ValueSet/australian-indigenous-status-1), and a code is required from this value set)"
 
+    @ncts
     Scenario: correct system and code, but display is wrong
       Given a test file named "test-cases/Patient/patient-ext-indigenousStatus-fail-08.xml" exists
       * extension "http://hl7.org.au/fhir/StructureDefinition/indigenous-status" is present in node "Patient"
@@ -94,6 +96,7 @@ In order to be assured of quality
       Then the command should "fail" with output message "*FAILURE*: 1 errors"
       And the command should "fail" with output message "TODO"
 
+    @ncts
     Scenario: incorrect system, with code as a member of that system
       Given a test file named "test-cases/Patient/patient-ext-indigenousStatus-fail-09.xml" exists
       * extension "http://hl7.org.au/fhir/StructureDefinition/indigenous-status" is present in node "Patient"
