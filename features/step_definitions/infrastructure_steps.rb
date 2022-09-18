@@ -30,11 +30,7 @@ When('I run the validator command on this testfile against profile {string}') do
 
   profile_url = "#{PROFILE_BASE}#{profile_id}"
 
-  # term_server = "https://r4.ontoserver.csiro.au/fhir"
-  # term_server = "n/a"
-  # -tx #{term_server}  
-
-  validator_command = "java -jar #{path_to_validator} -version #{FHIR_VERSION} #{@testfile} -ig #{IG_PACKAGE} -profile #{profile_url} -level errors"
+  validator_command = "java -jar #{path_to_validator} -version #{FHIR_VERSION} #{@testfile} -ig #{IG_PACKAGE} -profile #{profile_url} -level errors -tx #{TERM_SERVER} "
 
   begin
 
