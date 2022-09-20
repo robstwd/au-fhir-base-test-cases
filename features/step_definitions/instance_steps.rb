@@ -1,9 +1,9 @@
 Given('extension {string} is not present') do |extension_url|
-  # expect(@testfile).not_to have_extension(extension_url)
+  expect(@testfile).not_to have_extension(extension_url)
 end
 
 Given('extension {string} is present') do |extension_url|
-  # expect(@testfile).to have_extension(extension_url)
+  expect(@testfile).to have_extension(extension_url)
 end
 
 Given('extension {string} is present in node {string}') do |extension_url, node|

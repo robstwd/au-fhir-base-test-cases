@@ -104,7 +104,7 @@ module MatcherHelpers
 end
 
 # This matcher determines if a specific extension is present in a test file
-RSpec::Matchers.define :have_extension do |extension_url, valueType|
+RSpec::Matchers.define :have_extension do |extension_url|
 
   include MatcherHelpers
 
