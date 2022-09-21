@@ -7,7 +7,7 @@ def get_validator_path
     if Socket.gethostname == "LAPTOP-KL85GOQC"
       path_to_validator = "C\:\\Users\\rob\\Documents\\PC_stuff\\software\\FHIR\\validator\\validator_cli.jar"
     else
-      path_to_validator = "C\:\\work\\tools\\FHIR-validator\\validator_cli.jar"
+      path_to_validator = "C\:\\work\\tools\\fhir-validator\\validator_cli.jar"
     end
   # otherwise in Github action
   else
