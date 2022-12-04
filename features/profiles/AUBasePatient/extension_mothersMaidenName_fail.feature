@@ -17,7 +17,7 @@ In order to be assured of quality
       * extension "http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName" is present in node "Patient.name"
       When I run the validator command on this testfile against profile "au-patient"
       Then the command should "fail" with output message "*FAILURE*: 1 errors"
-      And the command should "fail" with output message "TODO"
+      And the command should "fail" with output message "The modifier extension http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName is not allowed to be used at this point (allowed = e:Patient; this element is [Patient.name, HumanName])"
 
     Scenario: wrong context: child of Patient.gender
       Given a test file named "test-cases/Patient/patient-ext-mothersMaidenName-fail-02.xml" exists
@@ -32,7 +32,7 @@ In order to be assured of quality
       * extension "http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName" is present in node "Practitioner"
       When I run the validator command on this testfile against profile "au-practitioner"
       Then the command should "fail" with output message "*FAILURE*: 1 errors"
-      And the command should "fail" with output message "TODO"
+      And the command should "fail" with output message "The modifier extension http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName is not allowed to be used at this point (allowed = e:Patient; this element is [Practitioner])"
 
   Rule: Extension has correct datatype: valueString
 
