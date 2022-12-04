@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir">
+  <id value="ext-mothersMaidenName-fail-08" />
+  <extension url="http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName">
+    <valueCode value="text" />
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName">
+    <valueString value="Somethimng else" />
+  </extension>
+  <name>
+    <use value="usual" />
+    <family value="Smith" />
+    <given value="Jack" />
+  </name>
+  <name>
+    <extension url="http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName">
+      <valueBoolean value="true" />
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName">
+      <valueDateTime value="2022-11-02" />
+    </extension>
+    <use value="official" />
+    <family value="Smith" />
+    <given value="John" />
+    <given value="Jacob" />
+    <given value="Jingleheimer" />
+    <period>
+      <end value="2001-01-01" />
+    </period>
+  </name>
+  <name>
+    <use value="official" />
+    <family value="Smith" />
+    <given value="John" />
+    <given value="Jacob" />
+    <given value="Jingleheimer" />
+    <period>
+      <start value="2001-01-01" />
+    </period>
+  </name>
+  <gender value="male">
+    <extension url="http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName">
+      <valueDateTime value="2022-11-02" />
+    </extension>
+  </gender>
+  <birthDate value="1955-05-30" />
+</Patient>
