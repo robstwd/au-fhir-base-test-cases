@@ -13,7 +13,13 @@ When('I run the validator command on this testfile against profile {string}') do
 
   profile_url = "#{PROFILE_BASE}#{profile_id}"
 
-  validator_command = "java -jar #{path_to_validator} -version #{FHIR_VERSION} #{@testfile} -ig #{IG_PACKAGE} -profile #{profile_url} -level errors -tx #{TERM_SERVER} "
+  validator_command = "java -jar #{path_to_validator} -version #{FHIR_VERSION} #{@testfile} -ig #{IG_PACKAGE} -profile #{profile_url} -level errors"
+
+  if USE_TERM_SERVER == "yes"
+
+    validator_command << " -tx #{TERM_SERVER}" 
+
+  end
 
   begin
 
