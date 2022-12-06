@@ -32,5 +32,5 @@ jobs:
     - name: Download FHIR validator
       run: wget -q https://github.com/hapifhir/org.hl7.fhir.core/releases/latest/download/validator_cli.jar -O validator.jar
     
-    - name: Run AUBasePatient extension birthPlace tests
+    - name: Run AUBasePatient extension Indigenous Status tests
       run: bundle exec cucumber --color --quiet features/profiles/AUBasePatient/extension_indigenousStatus*.feature
