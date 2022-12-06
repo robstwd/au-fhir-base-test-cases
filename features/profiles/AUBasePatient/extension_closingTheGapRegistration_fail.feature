@@ -18,7 +18,7 @@ In order to be assured of quality
       * extension "http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration" has child element "valueBoolean"
       When I run the validator command on this testfile against profile "au-patient"
       Then the command should "fail" with output message "*FAILURE*: 1 errors"
-      And the command should "fail" with output message "The modifier extension http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration is not allowed to be used at this point (allowed = e:Patient; this element is [[Patient.gender, code])"
+      And the command should "fail" with output message "The modifier extension http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration is not allowed to be used at this point (allowed = e:Patient; this element is [Patient.gender, code])"
 
     Scenario: wrong context - child of Patient.birthDate
       Given a test file named "test-cases/Patient/patient-ext-closingTheGapRegistration-fail-02.xml" exists
@@ -27,7 +27,7 @@ In order to be assured of quality
       * extension "http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration" has child element "valueBoolean"
       When I run the validator command on this testfile against profile "au-patient"
       Then the command should "fail" with output message "*FAILURE*: 1 errors"
-      And the command should "fail" with output message "The modifier extension http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration is not allowed to be used at this point (allowed = e:Patient; this element is [[Patient.birthDate, date])"
+      And the command should "fail" with output message "The modifier extension http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration is not allowed to be used at this point (allowed = e:Patient; this element is [Patient.birthDate, date])"
 
   Rule: Extension has correct datatype: valueBoolean
 
