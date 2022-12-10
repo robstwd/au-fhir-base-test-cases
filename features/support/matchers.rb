@@ -512,7 +512,7 @@ end
 
 
 # This matcher determines if the FHIR validator output contains the expected overall result
-# ie failure, success or warning
+# ie failure, success
 # output_result: = the expected text to find in the output
 # source: the actual output message
 RSpec::Matchers.define :include_output_result do |output_result|
@@ -548,7 +548,7 @@ RSpec::Matchers.define :include_output_result do |output_result|
 end
 
 
-# This matcher determines if the FHIR validator output contains the correct content
+# This matcher determines if the FHIR validator output contains the correct error content
 # argument: resultType => the expected result type, either "Warning" or "Error"
 # ie don't care in this method about clean passes
 # message: the expected error/warning text to find in the output
