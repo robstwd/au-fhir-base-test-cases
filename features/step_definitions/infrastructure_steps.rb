@@ -48,10 +48,6 @@ When('I run the validator command on this testfile against profile {string}') do
 
 end
 
-Then('the command should {string} with output message {string}') do |status, output_string|
-  expect(@output).to include_correct_content(status, output_string)
-end
-
 Then('the output will include the result {string}') do |output_result|
   expect(@output).to include_output_result(output_result)
 end
