@@ -8,3 +8,7 @@ FHIR_VERSION = "4.0.1"
 USE_TERM_SERVER = "no"
 
 TERM_SERVER = "https://r4.ontoserver.csiro.au/fhir"
+
+USE_TERM_SUPPORT_IG = "no"
+
+TERM_SUPPORT_IG = "ncts.terminolgy.support.01#dev"
