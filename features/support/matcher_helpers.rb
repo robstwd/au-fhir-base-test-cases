@@ -58,17 +58,6 @@ module MatcherHelpers
     return actual_value
   end
 
-  # TODO replace this method with the one below
-  # this method captures the error message summary line of the FHIR validator, if present (ie when a failure actually occurs)
-  # eg "*FAILURE*: 1 errors, 0 warnings, 0 notes"
-  # this returns a MatchData object (https://ruby-doc.org/core-2.6.8/MatchData.html)
-  # the argument is the FHIR validator output as a string
-  def get_validator_error_summary(validator_output)
-    text_to_match = %r{(\*FAILURE\*:(.*))}
-    return text_to_match.match(validator_output)     
-  end
-
-  # TODO return the 4 parts are separate values; can then replace the above method
   # this method captures the overall result summary line of the FHIR validator
   # eg "Success: 0 errors, 0 warnings, 1 notes"
   # eg "*FAILURE*: 1 errors, 0 warnings, 0 notes"
