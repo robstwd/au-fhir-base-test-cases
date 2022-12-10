@@ -500,7 +500,7 @@ RSpec::Matchers.define :have_result_type_with_message do |resultType, message|
     # the actual output message
     @actual_output = source
     # uncomment this to see validator output
-    Kernel.puts @actual_output
+    # Kernel.puts @actual_output
 
     # expected result type
     @expected_resultType = resultType
