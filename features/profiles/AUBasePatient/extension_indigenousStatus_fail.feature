@@ -84,7 +84,6 @@ In order to be assured of quality
       * extension "http://hl7.org.au/fhir/StructureDefinition/indigenous-status" has child element "valueCoding.code" with value "017"
       When I run the validator command on this testfile against profile "au-patient"
       Then the output will include the result "*FAILURE*: 1 errors"
-      And "Error @ Patient.extension[0].value.ofType(Coding)" is raised with message "The value provided ('017') is not in the value set 'Australian Indigenous Status' (https://healthterminologies.gov.au/fhir/ValueSet/australian-indigenous-status-1), and a code is required from this value set)"
       And "Error @ Patient.extension[0].value.ofType(Coding)" is raised with message "Unknown Code https://healthterminologies.gov.au/fhir/CodeSystem/australian-indigenous-status-1#017 in https://healthterminologies.gov.au/fhir/CodeSystem/australian-indigenous-status-1"
 
     @ncts
