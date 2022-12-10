@@ -17,8 +17,8 @@ In order to be assured of quality
       * extension "http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration" is present in node "Patient.gender"
       * extension "http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration" has child element "valueBoolean"
       When I run the validator command on this testfile against profile "au-patient"
-      Then the command should "fail" with output message "*FAILURE*: 1 errors"
-      And the command should "fail" with output message "The modifier extension http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration is not allowed to be used at this point (allowed = e:Patient; this element is [Patient.gender, code])"
+      Then the output will include the result "*FAILURE*: 1 errors"
+      And "Error @ Patient.gender" is raised with message "The modifier extension http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration is not allowed to be used at this point (allowed = e:Patient; this element is [Patient.gender, code])"
 
     Scenario: wrong context - child of Patient.birthDate
       Given a test file named "test-cases/Patient/patient-ext-closingTheGapRegistration-fail-02.xml" exists
@@ -26,8 +26,8 @@ In order to be assured of quality
       * extension "http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration" is present in node "Patient.birthDate"
       * extension "http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration" has child element "valueBoolean"
       When I run the validator command on this testfile against profile "au-patient"
-      Then the command should "fail" with output message "*FAILURE*: 1 errors"
-      And the command should "fail" with output message "The modifier extension http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration is not allowed to be used at this point (allowed = e:Patient; this element is [Patient.birthDate, date])"
+      Then the output will include the result "*FAILURE*: 1 errors"
+      And "Error @ Patient.birthDate" is raised with message "The modifier extension http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration is not allowed to be used at this point (allowed = e:Patient; this element is [Patient.birthDate, date])"
 
   Rule: Extension has correct datatype: valueBoolean
 
@@ -37,8 +37,8 @@ In order to be assured of quality
       * extension "http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration" does not have child element "valueBoolean"
       * extension "http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration" has child element "valueString" with value "true"
       When I run the validator command on this testfile against profile "au-patient"
-      Then the command should "fail" with output message "*FAILURE*: 1 errors"
-      And the command should "fail" with output message "The Extension 'http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration' definition allows for the types [boolean] but found type string"
+      Then the output will include the result "*FAILURE*: 1 errors"
+      And "Error @ Patient.extension" is raised with message "The Extension 'http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration' definition allows for the types [boolean] but found type string"
 
     Scenario: wrong datatype - valueDateTime
       Given a test file named "test-cases/Patient/patient-ext-closingTheGapRegistration-fail-04.xml" exists
@@ -46,8 +46,8 @@ In order to be assured of quality
       * extension "http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration" does not have child element "valueBoolean"
       * extension "http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration" has child element "valueDateTime"
       When I run the validator command on this testfile against profile "au-patient"
-      Then the command should "fail" with output message "*FAILURE*: 2 errors"
-      And the command should "fail" with output message "The Extension 'http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration' definition allows for the types [boolean] but found type dateTime"
+      Then the output will include the result "*FAILURE*: 2 errors"
+      And "Error @ Patient.extension" is raised with message "The Extension 'http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration' definition allows for the types [boolean] but found type dateTime"
 
   Rule: Extension has correct cardinality in Patient 0..1
 
@@ -55,12 +55,12 @@ In order to be assured of quality
       Given a test file named "test-cases/Patient/patient-ext-closingTheGapRegistration-fail-05.xml" exists
       * extension "http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration" is present "2" times in parent node "Patient"
       When I run the validator command on this testfile against profile "au-patient"
-      Then the command should "fail" with output message "*FAILURE*: 1 errors"
-      And the command should "fail" with output message "Patient.extension:closingTheGapRegistration: max allowed = 1, but found 2"
+      Then the output will include the result "*FAILURE*: 1 errors"
+      And "Error @ Patient" is raised with message "Patient.extension:closingTheGapRegistration: max allowed = 1, but found 2"
 
     Scenario: wrong cardinality: 4 instances
       Given a test file named "test-cases/Patient/patient-ext-closingTheGapRegistration-fail-06.xml" exists
       * extension "http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration" is present "4" times in parent node "Patient"
       When I run the validator command on this testfile against profile "au-patient"
-      Then the command should "fail" with output message "*FAILURE*: 1 errors"
-      And the command should "fail" with output message "Patient.extension:closingTheGapRegistration: max allowed = 1, but found 4"
+      Then the output will include the result "*FAILURE*: 1 errors"
+      And "Error @ Patient" is raised with message "Patient.extension:closingTheGapRegistration: max allowed = 1, but found 4"

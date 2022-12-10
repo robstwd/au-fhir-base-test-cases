@@ -15,17 +15,17 @@ Scenario: correct context, boolean as true
     * extension "http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration" is present in node "Patient"
     * extension "http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration" has child element "valueBoolean" with value "true"
     When I run the validator command on this testfile against profile "au-patient"
-    Then the command should "succeed" with output message "Success: 0 errors"
+    Then the output will include the result "Success: 0 errors"
 
 Scenario: correct context, boolean as false
     Given a test file named "test-cases/Patient/patient-ext-closingTheGapRegistration-pass-02.xml" exists
     * extension "http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration" is present in node "Patient"
     * extension "http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration" has child element "valueBoolean" with value "false"
     When I run the validator command on this testfile against profile "au-patient"
-    Then the command should "succeed" with output message "Success: 0 errors"
+    Then the output will include the result "Success: 0 errors"
 
 Scenario: as it optional, the extension is not present
     Given a test file named "test-cases/Patient/patient-ext-closingTheGapRegistration-pass-03.xml" exists
     * extension "http://hl7.org.au/fhir/StructureDefinition/closing-the-gap-registration" is not present
     When I run the validator command on this testfile against profile "au-patient"
-    Then the command should "succeed" with output message "Success: 0 errors"
+    Then the output will include the result "Success: 0 errors"
