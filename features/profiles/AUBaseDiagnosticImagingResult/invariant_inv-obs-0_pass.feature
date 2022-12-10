@@ -15,7 +15,7 @@ Scenario: Observation.valueQuantity is present, no others
     * element "Observation.hasMember" is not present
     * element "Observation.component" is not present
     When I run the validator command on this testfile against profile "au-imagingresult"
-    Then the command should "succeed" with output message "Success: 0 errors"
+    Then the output will include the result "Success: 0 errors"
 
 Scenario: Observation.valueString is present, no others
     Given a test file named "test-cases/Observation/observation-inv-obs-0-pass-02.xml" exists
@@ -24,7 +24,7 @@ Scenario: Observation.valueString is present, no others
     * element "Observation.hasMember" is not present
     * element "Observation.component" is not present
     When I run the validator command on this testfile against profile "au-imagingresult"
-    Then the command should "succeed" with output message "Success: 0 errors"
+    Then the output will include the result "Success: 0 errors"
 
 Scenario: Observation.valueInteger is present, no others
     Given a test file named "test-cases/Observation/observation-inv-obs-0-pass-03.xml" exists
@@ -33,7 +33,7 @@ Scenario: Observation.valueInteger is present, no others
     * element "Observation.hasMember" is not present
     * element "Observation.component" is not present
     When I run the validator command on this testfile against profile "au-imagingresult"
-    Then the command should "succeed" with output message "Success: 0 errors"
+    Then the output will include the result "Success: 0 errors"
 
 Scenario: Observation.valueBoolean is present, no others
     Given a test file named "test-cases/Observation/observation-inv-obs-0-pass-04.xml" exists
@@ -42,7 +42,7 @@ Scenario: Observation.valueBoolean is present, no others
     * element "Observation.hasMember" is not present
     * element "Observation.component" is not present
     When I run the validator command on this testfile against profile "au-imagingresult"
-    Then the command should "succeed" with output message "Success: 0 errors"
+    Then the output will include the result "Success: 0 errors"
 
 Scenario: Observation.dataAbsentReason is present, no others
     Given a test file named "test-cases/Observation/observation-inv-obs-0-pass-05.xml" exists
@@ -61,7 +61,7 @@ Scenario: Observation.dataAbsentReason is present, no others
     * element "Observation.hasMember" is not present
     * element "Observation.component" is not present
     When I run the validator command on this testfile against profile "au-imagingresult"
-    Then the command should "succeed" with output message "Success: 0 errors"
+    Then the output will include the result "Success: 0 errors"
 
 Scenario: Observation.hasMember is present, no others
     Given a test file named "test-cases/Observation/observation-inv-obs-0-pass-06.xml" exists
@@ -80,7 +80,7 @@ Scenario: Observation.hasMember is present, no others
     * element "Observation.hasMember" is present
     * element "Observation.component" is not present
     When I run the validator command on this testfile against profile "au-imagingresult"
-    Then the command should "succeed" with output message "Success: 0 errors"
+    Then the output will include the result "Success: 0 errors"
 
 Scenario: Observation.component.value is present, no others
     Given a test file named "test-cases/Observation/observation-inv-obs-0-pass-07.xml" exists
@@ -99,4 +99,4 @@ Scenario: Observation.component.value is present, no others
     * element "Observation.hasMember" is not present
     * element "Observation.component.valueString" is present
     When I run the validator command on this testfile against profile "au-imagingresult"
-    Then the command should "succeed" with output message "Success: 0 errors"
+    Then the output will include the result "Success: 0 errors"

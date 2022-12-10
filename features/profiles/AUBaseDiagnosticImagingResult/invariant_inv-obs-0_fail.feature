@@ -25,8 +25,8 @@ Scenario: Observation.value (all types), dataAbsentReason, hasMember and compone
     * element "Observation.hasMember" is not present
     * element "Observation.component" is not present
     When I run the validator command on this testfile against profile "au-imagingresult"
-    Then the command should "fail" with output message "*FAILURE*: 1 errors"
-    And the command should "fail" with output message "Rule inv-obs-0: 'An imaging result shall at least have value or data absent reason or a child observation with a value or data absent reason' Failed"
+    Then the output will include the result "*FAILURE*: 1 errors"
+    And "Error @ Observation" is raised with message "Rule inv-obs-0: 'An imaging result shall at least have value or data absent reason or a child observation with a value or data absent reason' Failed"
 
 Scenario: Observation.value (all types), dataAbsentReason, hasMember are not present, but component is present without a value
     Given a test file named "test-cases/Observation/observation-inv-obs-0-fail-02.xml" exists
@@ -56,6 +56,6 @@ Scenario: Observation.value (all types), dataAbsentReason, hasMember are not pre
     * element "Observation.component.valueDateTime" is not present
     * element "Observation.component.valuePeriod" is not present
     When I run the validator command on this testfile against profile "au-imagingresult"
-    Then the command should "fail" with output message "*FAILURE*: 1 errors"
-    And the command should "fail" with output message "Rule inv-obs-0: 'An imaging result shall at least have value or data absent reason or a child observation with a value or data absent reason' Failed"
+    Then the output will include the result "*FAILURE*: 1 errors"
+    And "Error @ Observation" is raised with message "Rule inv-obs-0: 'An imaging result shall at least have value or data absent reason or a child observation with a value or data absent reason' Failed"
     
