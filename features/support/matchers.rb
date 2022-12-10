@@ -44,68 +44,6 @@ RSpec::Matchers.define :have_extension do |extension_url|
 end
 
 
-# This matcher determines if the FHIR validator output contains the correct content
-# argument: status = the expected result as pass or fail
-# output_string: = the expected text to find in the output
-# source: the actual output message
-RSpec::Matchers.define :include_correct_content do |status, output_string| # element_name, value
-
-  include MatcherHelpers
-
-  match do |source|
-
-    # the actual output message
-    @actual_output = source
-    # uncomment this to see validator output
-    # Kernel.puts @actual_output
-
-    # expected command status
-    @expected_status = status
-    # Kernel.puts @expected_status
-
-    # expected output string
-    @expected_output_string = output_string
-    # Kernel.puts @expected_output_string
-
-    # prepare first line of the failure message, which is identical for the failure and success scenarios
-    @error_msg_first_line = "The validator command was expected to #{@expected_status} containing message: #{@expected_output_string} \n"
-
-    # when the validator is expected to succeed
-    if @expected_status == "succeed" 
-
-      # capture the error message summary line, if one exists
-      @error_summary = get_validator_error_summary(@actual_output)
-
-      # check that there actually is an error line and if not, do nothing
-      if not @error_summary.nil?
-
-        # error message gets constructed of
-        # 1) pre-prepared first line
-        # 2) the single line of the error summary (MatchData.to_s)
-        # 3) and a full output of the validator errors (MatchData.post_match with chomp to remove the extra empty line)
-        @error_msg = "#{@error_msg_first_line}" \
-            " Instead it failed with the message: #{@error_summary.to_s} \n" \
-            "#{@error_summary.post_match.chomp}"
-      end
-
-    # however if the validator is expected to fail but instead it succeeds
-    # output this instead
-    elsif @expected_status == "fail" 
-      @error_msg = "#{@error_msg_first_line}" \
-          " Instead it passed."
-    end
-
-    expect(@actual_output).to include(@expected_output_string)
-
-  end
-
-  failure_message do |source|
-    print_failure_message(@error_msg)
-  end
-
-end
-
-
 # This matcher determines if a given element in a test file has a specific value
 RSpec::Matchers.define :have_element_with_value do |element_name, value|
 
@@ -562,7 +500,7 @@ RSpec::Matchers.define :have_result_type_with_message do |resultType, message|
     # the actual output message
     @actual_output = source
     # uncomment this to see validator output
-    # Kernel.puts @actual_output
+    Kernel.puts @actual_output
 
     # expected result type
     @expected_resultType = resultType
