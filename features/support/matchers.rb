@@ -546,3 +546,43 @@ RSpec::Matchers.define :include_output_result do |output_result|
   end
 
 end
+
+
+# This matcher determines if the FHIR validator output contains the correct content
+# argument: resultType => the expected result type, either "Warning" or "Error"
+# ie don't care in this method about clean passes
+# message: the expected error/warning text to find in the output
+# source: the actual output message
+RSpec::Matchers.define :have_result_type_with_message do |resultType, message|
+
+  include MatcherHelpers
+
+  match do |source|
+
+    # the actual output message
+    @actual_output = source
+    # uncomment this to see validator output
+    # Kernel.puts @actual_output
+
+    # expected result type
+    @expected_resultType = resultType
+    # Kernel.puts @expected_resultType
+
+    # expected message
+    @expected_message = message
+    # Kernel.puts @expected_message
+
+    # prepare failure message
+    @error_msg = "The validator command did not raise the expected content: \n" \
+          "   - result type: #{@expected_resultType} \n" \
+          "   - message: #{@expected_message}"
+
+    expect(@actual_output).to include(@expected_resultType).and include(@expected_message)
+
+  end
+
+  failure_message do |source|
+    print_failure_message(@error_msg)
+  end
+
+end

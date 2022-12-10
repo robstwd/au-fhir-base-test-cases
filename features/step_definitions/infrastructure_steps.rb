@@ -54,4 +54,8 @@ end
 
 Then('the output will include the result {string}') do |output_result|
   expect(@output).to include_output_result(output_result)
-end
+end
+
+Then('{string} is raised with message {string}') do |resultType, message|
+  expect(@output).to have_result_type_with_message(resultType, message)
+end
