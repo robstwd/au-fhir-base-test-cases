@@ -16,7 +16,7 @@ Scenario: correct context, basic content
     * extension "http://hl7.org/fhir/StructureDefinition/patient-birthPlace" has child element "valueAddress.text"
     * extension "http://hl7.org/fhir/StructureDefinition/patient-birthPlace" has child element "valueAddress.country"
     When I run the validator command on this testfile against profile "au-patient"
-    Then the command should "succeed" with output message "Success: 0 errors"
+    Then the output will include the result "Success: 0 errors"
 
 Scenario: correct context, minimal content
     Given a test file named "test-cases/Patient/patient-ext-birthPlace-pass-02.xml" exists
@@ -32,7 +32,7 @@ Scenario: correct context, minimal content
     * extension "http://hl7.org/fhir/StructureDefinition/patient-birthPlace" does not have child element "valueAddress.country"
     * extension "http://hl7.org/fhir/StructureDefinition/patient-birthPlace" does not have child element "valueAddress.period"
     When I run the validator command on this testfile against profile "au-patient"
-    Then the command should "succeed" with output message "Success: 0 errors"
+    Then the output will include the result "Success: 0 errors"
 
 Scenario: correct context, maximal content
     Given a test file named "test-cases/Patient/patient-ext-birthPlace-pass-03.xml" exists
@@ -48,4 +48,4 @@ Scenario: correct context, maximal content
     * extension "http://hl7.org/fhir/StructureDefinition/patient-birthPlace" has child element "valueAddress.country"
     * extension "http://hl7.org/fhir/StructureDefinition/patient-birthPlace" has child element "valueAddress.period"
     When I run the validator command on this testfile against profile "au-patient"
-    Then the command should "succeed" with output message "Success: 0 errors"
+    Then the output will include the result "Success: 0 errors"
