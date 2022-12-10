@@ -610,3 +610,40 @@ RSpec::Matchers.define :have_extension_with_element_and_value do |extension_url,
   end
 
 end
+
+
+# This matcher determines if the FHIR validator output contains the expected overall result
+# ie failure, success or warning
+# output_result: = the expected text to find in the output
+# source: the actual output message
+RSpec::Matchers.define :include_output_result do |output_result|
+
+  include MatcherHelpers
+
+  match do |source|
+
+    # the actual output message
+    @actual_output = source
+    # uncomment this to see validator output
+    # Kernel.puts @actual_output
+
+    # expected output string
+    @expected_output_result = output_result
+    # Kernel.puts @expected_output_result
+
+    # capture the overall result summary line
+    @result_summary = get_overall_result_summary(@actual_output)
+    # Kernel.puts "result_summary: #{@result_summary}"
+
+    @error_msg = "The validator command was expected to have the result: #{@expected_output_result} \n" \
+          " Instead the result was: #{@result_summary}."
+
+    expect(@result_summary).to include(@expected_output_result)
+
+  end
+
+  failure_message do |source|
+    print_failure_message(@error_msg)
+  end
+
+end
