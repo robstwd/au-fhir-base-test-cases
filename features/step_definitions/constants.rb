@@ -9,6 +9,7 @@ USE_TERM_SERVER = "no"
 
 TERM_SERVER = "https://r4.ontoserver.csiro.au/fhir"
 
-USE_TERM_SUPPORT_IG = "no"
+USE_TERM_SUPPORT_IG = "yes"
 
-TERM_SUPPORT_IG = "ncts.terminolgy.support.01#dev"
+# TERM_SUPPORT_IG = "ncts.terminology.support.01#dev"
+TERM_SUPPORT_IG = "https://robstwd.github.io/ncts-terminology-support-ig/package.tgz"
