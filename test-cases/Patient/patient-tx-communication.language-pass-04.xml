@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir">
+    <communication>
+        <language>
+            <coding>
+                <system value="urn:ietf:bcp:47" />
+                <version value="4.0.1"/>
+                <code value="kdd" />
+                <display value="Yankunytjatjara" />
+                <userSelected value="true"/>
+            </coding>
+            <text value="Yankunytjatjara"/>
+        </language>
+    </communication>
+</Patient>

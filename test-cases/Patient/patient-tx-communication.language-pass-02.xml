@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir">
+    <communication>
+        <language>
+            <coding>
+                <system value="urn:ietf:bcp:47" />
+                <code value="nay" />
+                <display value="Narrinyeri" />
+            </coding>
+            <text value="Ngarrindjeri" />
+        </language>
+    </communication>
+</Patient>
