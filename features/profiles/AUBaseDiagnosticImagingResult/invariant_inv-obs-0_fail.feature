@@ -44,6 +44,7 @@ Scenario: Observation.value (all types), dataAbsentReason, hasMember are not pre
     * element "Observation.dataAbsentReason" is not present
     * element "Observation.hasMember" is not present
     * element "Observation.component" is present
+    * element "Observation.component.dataAbsentReason" is not present
     * element "Observation.component.valueQuantity" is not present
     * element "Observation.component.valueCodeableConcept" is not present
     * element "Observation.component.valueString" is not present

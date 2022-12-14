@@ -12,7 +12,7 @@
 		<coding>
 			<system value="http://loinc.org"/>
 			<code value="24701-5"/>
-			<display value="Femur DXA Bone density"/>
+			<display value="DXA Femur ArMass BMD" />
 		</coding>
 		<text value="BMD - Left Femur"/>
 	</code>
@@ -36,15 +36,15 @@
 			<coding>
 				<system value="http://loinc.org"/>
 				<code value="24701-5"/>
-				<display value="Femur DXA Bone density"/>
+				<display value="DXA Femur ArMass BMD" />
 			</coding>
 			<text value="BMD - Left Femur"/>
 		</code>
-		<dataAbsentReason>
+		<!-- <dataAbsentReason>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/data-absent-reason"/>
 				<code value="unknown"/>
 			</coding>
-		</dataAbsentReason>
+		</dataAbsentReason> -->
 	</component>
 </Observation>
