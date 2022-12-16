@@ -27,4 +27,4 @@ http://hl7.org.au/fhir/StructureDefinition/au-patient
 |Patient.birthDate|extension|[birthTime](http://hl7.org/fhir/StructureDefinition/patient-birthTime)| |
 |Patient.deceasedDateTime|extension|[accuracyIndicator](http://hl7.org.au/fhir/StructureDefinition/date-accuracy-indicator)| |
 |Patient.address|datatype|[AustralianAddress](https://build.fhir.org/ig/hl7au/au-fhir-base/StructureDefinition-au-address.html)| |
-|Patient.communication.language|terminology|[Common Languages in Australia](https://healthterminologies.gov.au/fhir/ValueSet/common-languages-australia-2) (extensible)| |
+|Patient.communication.language|terminology|[Common Languages in Australia](https://healthterminologies.gov.au/fhir/ValueSet/common-languages-australia-2) (extensible)|[![communication.language binding tests](https://github.com/robstwd/au-fhir-base-test-cases/actions/workflows/AUBasePatient-validation-tx-communication.language.yml/badge.svg)](https://github.com/robstwd/au-fhir-base-test-cases/actions/workflows/AUBasePatient-validation-tx-communication.language.yml)|
