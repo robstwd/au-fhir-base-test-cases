@@ -75,7 +75,7 @@ module MatcherHelpers
     "#{FAILURE_MESSAGE_END}"
   end
 
-  # this method retuns a nodeset from a test file, specifying an element
+  # this method returns a nodeset from a test file, specifying an element
   # arguments 
   #   - testfile under examination (relative location ie 'test/CodeSystem/codesystem-hl7au-csd-base-02-fail-01.xml')
   #   - the element under examination, in full FHIR Resource.element notation ie 'CodeSystem.url'
@@ -89,7 +89,7 @@ module MatcherHelpers
     return doc.xpath(element_xpath)
   end
 
-  # this method retuns a nodeset from a test file, specifying an extension
+  # this method returns a nodeset from a test file, specifying an extension
   def get_extension_nodeset(testfile_name, extension_url, value_type)
     doc = get_nokogiri_doc(testfile_name)
     extension_xpath = "//extension[@url='#{extension_url}']/#{value_type}"

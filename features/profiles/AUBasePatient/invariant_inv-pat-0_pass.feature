@@ -1,4 +1,4 @@
-Feature: HL7AU AU Base Patient profile: expected passws for invariant 'inv-pat-0'
+Feature: HL7AU AU Base Patient profile: expected passes for invariant 'inv-pat-0'
 
  - Context: Patient (birthTime extension and birthDate)
  - Human: If present, birth time's date shall be the birth date

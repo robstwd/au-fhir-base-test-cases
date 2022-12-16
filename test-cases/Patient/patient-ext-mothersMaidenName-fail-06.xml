@@ -5,7 +5,7 @@
     <valueString value="Jingleheimer" />
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName">
-    <valueString value="Somethimng else" />
+    <valueString value="Something else" />
   </extension>
   <name>
     <use value="usual" />

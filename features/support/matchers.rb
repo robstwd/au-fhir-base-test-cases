@@ -272,7 +272,7 @@ RSpec::Matchers.define :have_extension_in_node do |extension_url, node|
       @extension_url = extension_url
       # Kernel.puts @extension_url
 
-      # the expected node that the extensionm is to be a child of
+      # the expected node that the extension is to be a child of
       @parent_node = node
       # Kernel.puts @parent_node
 

@@ -6,7 +6,7 @@ Feature: HL7AU AU Base Patient profile: expected warnings for binding on Patient
 
 NOTE 
 The binding is extensible therefore a failure specifically due to the terminology binding cannot be invoked, only warnings.
-Errors can be raised due to Coding datatype malformation, but that is not the poiunt of this feature
+Errors can be raised due to Coding datatype malformation, but that is not the point of this feature
 
 As a verifier of HL7AU content
 I want terminology binding on Patient.communication.language to give warnings when expected to
