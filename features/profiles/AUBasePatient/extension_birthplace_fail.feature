@@ -17,7 +17,7 @@ In order to be assured of quality
       * extension "http://hl7.org/fhir/StructureDefinition/patient-birthPlace" is present in node "Patient.address"
       When I run the validator command on this testfile against profile "au-patient"
       Then the output will include the result "*FAILURE*: 3 errors"
-      And "Error @ Patient.address" is raised with message "The modifier extension http://hl7.org/fhir/StructureDefinition/patient-birthPlace is not allowed to be used at this point (allowed = e:Patient; this element is [Patient.address, Address])"
+      And "Error @ Patient.address" is raised with message "The extension http://hl7.org/fhir/StructureDefinition/patient-birthPlace is not allowed to be used at this point (allowed = e:Patient; this element is [Patient.address, Address])"
 
     Scenario: wrong context: child of Patient.gender
       Given a test file named "test-cases/Patient/patient-ext-birthPlace-fail-02.xml" exists
@@ -25,14 +25,14 @@ In order to be assured of quality
       * extension "http://hl7.org/fhir/StructureDefinition/patient-birthPlace" is present in node "Patient.gender"
       When I run the validator command on this testfile against profile "au-patient"
       Then the output will include the result "*FAILURE*: 1 errors"
-      And "Error @ Patient.gender" is raised with message "The modifier extension http://hl7.org/fhir/StructureDefinition/patient-birthPlace is not allowed to be used at this point (allowed = e:Patient; this element is [Patient.gender, code])"
+      And "Error @ Patient.gender" is raised with message "The extension http://hl7.org/fhir/StructureDefinition/patient-birthPlace is not allowed to be used at this point (allowed = e:Patient; this element is [Patient.gender, code])"
 
     Scenario: wrong context: Practitioner
       Given a test file named "test-cases/Patient/patient-ext-birthPlace-fail-03.xml" exists
       * extension "http://hl7.org/fhir/StructureDefinition/patient-birthPlace" is present in node "Practitioner"
       When I run the validator command on this testfile against profile "au-practitioner"
       Then the output will include the result "*FAILURE*: 1 errors"
-      And "Error @ Practitioner" is raised with message "The modifier extension http://hl7.org/fhir/StructureDefinition/patient-birthPlace is not allowed to be used at this point (allowed = e:Patient; this element is [Practitioner])"
+      And "Error @ Practitioner" is raised with message "The extension http://hl7.org/fhir/StructureDefinition/patient-birthPlace is not allowed to be used at this point (allowed = e:Patient; this element is [Practitioner])"
 
   Rule: Extension has correct datatype: valueAddress
 

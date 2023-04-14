@@ -20,7 +20,7 @@ In order to be assured of quality
       * extension "http://hl7.org.au/fhir/StructureDefinition/indigenous-status" has child element "valueCoding.display" with value "Torres Strait Islander but not Aboriginal origin"
       When I run the validator command on this testfile against profile "au-patient"
       Then the output will include the result "*FAILURE*: 1 errors"
-      And "Error @ Patient.gender" is raised with message "The modifier extension http://hl7.org.au/fhir/StructureDefinition/indigenous-status is not allowed to be used at this point (allowed = e:Patient; this element is [Patient.gender, code])"
+      And "Error @ Patient.gender" is raised with message "The extension http://hl7.org.au/fhir/StructureDefinition/indigenous-status is not allowed to be used at this point (allowed = e:Patient; this element is [Patient.gender, code])"
 
     Scenario: wrong context - child of Patient.birthDate
       Given a test file named "test-cases/Patient/patient-ext-indigenousStatus-fail-02.xml" exists
@@ -31,7 +31,7 @@ In order to be assured of quality
       * extension "http://hl7.org.au/fhir/StructureDefinition/indigenous-status" has child element "valueCoding.display" with value "Both Aboriginal and Torres Strait Islander origin"
       When I run the validator command on this testfile against profile "au-patient"
       Then the output will include the result "*FAILURE*: 1 errors"
-      And "Error @ Patient.birthDate" is raised with message "The modifier extension http://hl7.org.au/fhir/StructureDefinition/indigenous-status is not allowed to be used at this point (allowed = e:Patient; this element is [Patient.birthDate, date])"
+      And "Error @ Patient.birthDate" is raised with message "The extension http://hl7.org.au/fhir/StructureDefinition/indigenous-status is not allowed to be used at this point (allowed = e:Patient; this element is [Patient.birthDate, date])"
 
   Rule: Extension has correct datatype: valueCoding
 
